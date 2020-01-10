@@ -1,6 +1,3 @@
-import { resolve } from "dns"
-import { rejects } from "assert"
-
 class Promise2 {
   succeed = null
   fail = null
