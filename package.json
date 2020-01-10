@@ -4,14 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha src/**/*.test.js"
+    "test": "mocha src/**/*.test.js",
+    "ts-test": "mocha -r ts-node/register src/**/*.test.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@types/chai": "^4.2.7",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^13.1.6",
+    "@types/sinon": "^7.5.1",
+    "@types/sinon-chai": "^3.2.3",
     "chai": "^4.2.0",
     "mocha": "^7.0.0",
     "sinon": "^8.0.4",
