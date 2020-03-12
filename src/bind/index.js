@@ -1,7 +1,7 @@
 // 如果浏览器都不支持bind了，那么es6里 const(用 var), ...也不能用
 // 写个slice 代替
 var slice = Array.prototype.slice
-function bind (asThis, ...args) {
+function bind (asThis) {
   // 取剩下的参数, 第一个参数是asThis
   var args = slice.call(arguments, 1)
   var fn = this

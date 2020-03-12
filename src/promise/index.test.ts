@@ -173,4 +173,11 @@ describe('Promise', ()=> {
       done()
     })
   })
+  it('then 可以返回一个 promise', ()=> {
+    const promise = new Promise((resolve, reject)=>{
+      reject()
+    })
+    const promise2 = promise.then(()=>{}, ()=>{})
+    assert(promise2 instanceof Promise)
+  })
 })

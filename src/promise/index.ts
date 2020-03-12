@@ -1,6 +1,10 @@
-import { fail } from "assert"
-
 class Promise2 {
+  constructor(fn) {
+    if (typeof fn !== "function") {
+      throw new Error('Promise must accept a function')
+    }
+    fn(this.resolve.bind(this), this.reject.bind(this))
+  }
   state = 'pending'
   callbacks = []
   resolve(result) {
@@ -25,12 +29,6 @@ class Promise2 {
       });
     }, 0)
   }
-  constructor(fn) {
-    if (typeof fn !== "function") {
-      throw new Error('Promise must accept a function')
-    }
-    fn(this.resolve.bind(this), this.reject.bind(this))
-  }
   then(succeed?, fail?) {
     const handle = []
     if (typeof succeed === 'function') {
@@ -40,6 +38,8 @@ class Promise2 {
       handle[1] = fail
     }
     this.callbacks.push(handle)
+    // then() 也要返回promise
+    return new Promise2(()=>{})
   }
 }
 export default Promise2
